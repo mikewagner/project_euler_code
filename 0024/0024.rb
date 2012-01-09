@@ -1,13 +1,6 @@
 #!/usr/bin/env ruby
 
 
-a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+puts [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].permutation.each_with_index.find { |_, i| i == 999_999 }.first.join
 
-count = 0
-a.permutation.each do |p|
-  count += 1
-  if count == 1000000
-    puts p.join('')
-    break
-  end
-end
+
