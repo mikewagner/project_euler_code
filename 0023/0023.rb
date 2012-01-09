@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'prime'
-
 def divisors(n)
   d = []
   (1..n).each do |i|
@@ -14,16 +12,22 @@ def sum_of_divisors(n)
   divisors(n).inject(0, &:+)
 end
 
-
-p divisors(72)
-p sum_of_divisors(72)
-p 72.prime_division
-exit
-
-
-a = []
-(12..28123).each do |i|
-  a << i if sum_of_divisors(i) > i
+abundants = []
+(2..28123).each do |i|
+  abundants << i if sum_of_divisors(i) > i
 end
 
+
+results = []
+abundants.each_with_index do |a,i|
+  (i...abundants.length).each do |j|
+
+    x = a + abundants[i]
+    results << a
+    break if a > 28123
+
+  end
+end
+
+p results
 
