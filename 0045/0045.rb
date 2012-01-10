@@ -28,11 +28,11 @@ hexagonals = Fiber.new do
   end 
 end
 
-
-
 t, p, h = [], [], []
-100000.times { t << triangles.resume }
-100000.times { p << pentagonals.resume }
-100000.times { h << hexagonals.resume }
+100000.times do
+  t << triangles.resume
+  p << pentagonals.resume
+  h << hexagonals.resume
+end
 
 p t & p & h
